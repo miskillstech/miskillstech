@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 .bottom-menu a:hover,.bottom-menu a.active,.bottom-menu a:active{
   background:rgba(0,0,0,0.05);
   transition: all 0.15s ease;
-  color:cyan;
+  color:#016BFF;
 }
 .bottom-menu.ngfx-fadeinupbig-start #cookies{
   opacity:1;
@@ -142,7 +142,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #E7EFF1;
 }
 .bg-lightblue {
-  background-color: #1E9EFA;
+  background-color: #A6CE39;
 }
 .bg-violet {
   background-color: #A52FF9;
@@ -185,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #EFF5F7;
 }
 .color-lightblue {
-  color: #1E9EFA;
+  color: #A6CE39;
 }
 .color-violet {
   color: #8E2BD4;
