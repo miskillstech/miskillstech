@@ -1,6 +1,0 @@
-/*!CK:2602063324!*//*1456170874,*/
-
-if (self.CavalryLogger) { CavalryLogger.start_js(["JSIce"]); }
-
-__d('MultichatHovercard',['ChatOpenTab'],function a(b,c,d,e,f,g){if(c.__markCompiled)c.__markCompiled();var h={listen:function(i,j){c('ChatOpenTab').listenOpenThread(i,j,'MultichatHovercard');}};f.exports=h;},null);
-__d('CollectionSuggestionQuestionCarouselWrapper',['csx','cx','Parent','TimelineCollectionAddRecommendation','tidyEvent'],function a(b,c,d,e,f,g,h,i){if(c.__markCompiled)c.__markCompiled();function j(k,l,m,n,o){'use strict';this.collectionToken=k;this.itemID=l;this.pageletID=m;this.question=n;this.root=o;c('tidyEvent')(n.subscribe('answered',function(p,q){if(q==='yes'){var r=c('TimelineCollectionAddRecommendation').plusRecommendation(this.pageletID,c('TimelineCollectionAddRecommendation').getPageletID(this.collectionToken),c('Parent').bySelector(this.root,"._58rc"),this.itemID,this.collectionToken,true);return Object.assign(r,{collection_token:this.collectionToken});}else{var s=c('TimelineCollectionAddRecommendation').removeItemFromRecommendations(this.pageletID,c('Parent').bySelector(this.root,"._58rc"));return {ignored_item_ids:s,objectid:this.itemID};}}.bind(this)));}f.exports=j;},null);

@@ -1,3 +1,78 @@
+/* CSS Document */
+#warp { 
+	height:11500px;
+}
+#content-warp {
+	 max-width:900px;
+	 margin:190px auto;
+	 font-size:22px;
+	 line-height:30px;
+}
+.header {
+	left: 0;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+    position: fixed;
+	z-index: 999;
+	background-color: rgba(1, 107, 255, 0.3);
+	font-size: 50px;
+	-webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    -ms-transition: height 0.3s;
+    -o-transition: height 0.3s;
+    transition: height 0.3s;
+	line-height: 100px;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+.header h1#logo {
+    display: inline=block;
+    height: 150px;
+    float: left;
+	margin-left:50px;
+    font-family: "Oswald", sans-serif;
+    font-size: 60px;
+    color: white;
+    font-weight: 400;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.header nav {
+    display: inline=block;
+    float: right;
+	margin-right:50px;
+}
+.header nav a {
+    line-height: 150px;
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.header nav a:hover {
+    color: white;
+}
+.header.smaller {
+    height: 75px;
+}
+.header.smaller h1#logo {
+    width: 150px;
+    height: 75px;
+    font-size: 30px;
+}
+.header.smaller nav a {
+    line-height: 75px;
+}
 .navbar-menu {
     max-width: 80%!important;
+}.navbar-menu-active {
+    transition: all 0.15s ease;
+    color: #016BFF;
 }
