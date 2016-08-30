@@ -1,0 +1,52 @@
+<div class="header smaller">
+	<div class="container clearfix">
+		<h1 id="logo">
+			<a href="#hello" ng-click="setActiveLink('hello')" class="logo color-lightblue">
+				<img alt="Mind skills technology8" src="assets/img/logo.png" height="70px"> 
+			</a>
+		</h1>
+		<!-- nav -->
+		<nav>
+			<a href="#awards" ng-click="setActiveLink('awards')" ng-class="{'navbar-menu-active': activeLink === 'awards'}">
+				Services
+			</a>
+			<a href="#contacts" ng-click="setActiveLink('contacts')" ng-class="{'navbar-menu-active': activeLink === 'contacts'}">
+				Contacts
+			</a>
+			<a href="#contacts" ng-click="setActiveLink('contacts')" ng-class="{'navbar-menu-active': activeLink === 'contacts'}">
+				Portfolio
+			</a>
+			<a href="#contacts" ng-click="setActiveLink('contacts')" ng-class="{'navbar-menu-active': activeLink === 'contacts'}">
+				News
+			</a>
+		</nav>
+	</div>
+</div>
+<!--footer nav -->
+<div class="footer bg-lightblue color-white line fixed bottom layer2" ngfx-fade-in-up-big="true" ngfx-default="show" ngfx-speed="slow">
+	<div class="bottom-menu">
+		<div class="line center-content font-light">
+			<div class="col3 col3x3">
+				<a href="#apps" ng-click="setActiveLink('apps')" ng-class="{'active': activeLink === 'apps'}" class="line color-blue font-x-medium">
+					<div class="separator10"></div>
+						Apps
+					<div class="separator10"></div>
+				</a>
+			</div>
+			<div class="col3 col3x3">
+				<a href="#code" ng-click="setActiveLink('code')" ng-class="{'active': activeLink === 'code'}" class="line color-blue font-x-medium">
+					<div class="separator10"></div>
+						Code
+					<div class="separator10"></div>
+				</a>
+			</div>
+			<div class="col3 col3x3">
+				<a href="#team" ng-href="#team" ng-click="setActiveLink('team')" ng-class="{'active': activeLink === 'team'}" class="line color-blue font-x-medium">
+					<div class="separator10"></div>
+						Team
+					<div class="separator10"></div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
