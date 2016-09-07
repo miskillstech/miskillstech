@@ -2,4 +2,5 @@ version: '2'
 services:
   nginxdocker:
     ports:
-       - "80:85"
+       - "80:80"
+       - "443:443"
