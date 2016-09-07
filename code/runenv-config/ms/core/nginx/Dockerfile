@@ -19,22 +19,12 @@ ENV TERM screen
 ##### Section 2: Container specific packages #####
 RUN apt-get install -y nginx
 
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+	&& ln -sf /dev/stderr /var/log/nginx/error.log
+	
 # Most users will enter www.savantcare.com in their browser so we need to respod to port 80. Once we respond to port 80 we will redirect to port 85.
-Expose 80
-
-# install the monitoring client
-RUN apt-get -y install munin-node
-
-# install docker client since I need to monitor the events and add the locations
-RUN apt-get -y install curl
-RUN curl -sSL https://get.docker.com/ | sh
+EXPOSE 80 443
 
 # remove the default nginx config file otherwise it will display welcome to nginx meesage when someone goes to www.savantcare.com
 RUN rm -rf /etc/nginx/sites-available/default  
-
-# Docker container runs as long as the command you specify with CMD, ENTRTYPOINT or through the command line is running. 
-# Setting deamon off so that nginx runs in the foreground and does not exit.
-# I am using CMD instead of entrypoing since CMD can be overridden on the command line easily
-# ref: https://www.ctl.io/developers/blog/post/dockerfile-entrypoint-vs-cmd/
-# nginx has to be last command since it is running in daemon off. Hence it never returns control and hence if service redis-server start is specified after nginx it will not start.
-CMD ["/usr/bin/supervisord", "-n","-c","/etc/supervisor/supervisord.conf"]
