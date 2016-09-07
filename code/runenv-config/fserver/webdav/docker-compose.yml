@@ -1,0 +1,10 @@
+webdavdocker:
+  build: ./
+  volumes:
+     - /gt/savantcare.com:/gt/savantcare.com
+     - /gt/vkpersonal:/gt/vkpersonal
+  ports:
+     - "8888:80"
+  environment:
+     - USERNAME=test
+     - PASSWORD=test

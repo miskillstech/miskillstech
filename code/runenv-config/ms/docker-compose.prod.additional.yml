@@ -1,0 +1,5 @@
+version: '2'
+services:
+  nginxdocker:
+    ports:
+       - "85:85"

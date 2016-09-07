@@ -1,0 +1,10 @@
+nfsdocker:
+  build: ./
+  volumes:
+     - /gt/savantcare.com:/gt/savantcare.com
+     - /gt/vkpersonal:/gt/vkpersonal
+     - /gt/savantcare.com/code/runenv-config/nfs/exports:/etc/exports
+  ports:
+     - "111:111"
+     - "2049:2049"
+  privileged: true 

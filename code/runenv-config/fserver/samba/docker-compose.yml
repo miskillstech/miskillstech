@@ -1,0 +1,11 @@
+sambadocker:
+  build: ./
+  volumes:
+     - /gt/savantcare.com:/gt/savantcare.com
+     - /gt/vkpersonal:/gt/vkpersonal
+     - /gt/savantcare.com/code/runenv-config/fserver/samba/smb.conf:/etc/samba/smb.conf
+  ports:
+     - "137:137"
+     - "138:138"
+     - "139:139"
+     - "445:445"

@@ -1,0 +1,22 @@
+version: '2'
+services:
+  from_sc_nginx:
+    build: ./
+    volumes:
+      - /gt/savantcare.com/data/munin:/var/lib/munin
+      - /gt/savantcare.com/code/runenv-config/monitoring/munin-server-every-5min/etc-munin:/etc/munin
+    networks:
+      - emr
+  # Why NOT setting the environment variable to PST?
+  # PST has day light savings time and than can make servers get confused if the time goes back.
+  # this container is used to measure load average and we want to measure load average in PST.
+  #environment
+  #  - TZ=America/Los_Angeles
+  
+networks:
+  emr:
+    external:
+          name: emr_default
+
+#Q) Why is the network emr needed?
+#Because from emr nginx traffic is sent to munin server. If munin_server container cannot be pinged than emr_nginx will not start.

@@ -1,0 +1,192 @@
+Last updated on 26th may 2016 by TD
+
+
+
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/emr/
+
+    Steps to run emr_phpmyadmin_1 ->
+        step 1: git submodule init phpmyadmin/
+        step 2: git submodule update phpmyadmin/
+        step 3: docker-compose -f docker-compose.core.yml -f docker-compose.dev.additional.yml build phpmyadmin
+        step 4: docker-compose -f docker-compose.core.yml -f docker-compose.dev.additional.yml up -d phpmyadmin
+
+    After Docker ps command Docker will looks like below:
+
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        9a91d9ad7b1d        emr_phpmyadmin                          "/run.sh"                3 hours ago         Up 3 hours          0.0.0.0:83->80/tcp                         emr_phpmyadmin_1
+
+
+
+
+    Steps to run emr_php7docker_1, emr_mysqldocker_1, emr_nginxdocker_1, emr_redis_for_publish_1, emr_nodejs_socketio_for_publish_1, emr_run_scripts_on_schedule_with_cron_1, emr_run_scripts_continously_1, emr_run_scripts_on_events_1, emr_pdfletters_1, emr_googlecalendar_1, emr_gmailreader_1 ->
+        step 1: docker-compose -f docker-compose.core.yml -f docker-compose.ui-update.yml -f docker-compose.batch.yml -f docker-compose.prod.additional.yml up -d
+
+    After Docker ps command Docker will looks like below:
+
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        76a2f385f398        emr_php7docker                          "/usr/bin/supervisord"   4 hours ago         Up 4 hours          84/tcp                                     emr_php7docker_1
+        684c55e146d3        emr_mysqldocker                         "/usr/bin/supervisord"   4 hours ago         Up 4 hours          10.53.35.12:3306->3306/tcp                 emr_mysqldocker_1
+        60efa76eafc1        emr_nginxdocker                         "/usr/bin/supervisord"   4 hours ago         Up 4 hours          0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp   emr_nginxdocker_1
+        d6e718fb3c83        emr_redis_for_publish                   "/usr/bin/supervisord"   4 hours ago         Up 4 hours          6379/tcp                                   emr_redis_for_publish_1
+        0c2f20de869f        emr_nodejs_socketio_for_publish         "/usr/bin/supervisord"   4 hours ago         Up About an hour    81/tcp                                     emr_nodejs_socketio_for_publish_1
+        126add25ba01        emr_run_scripts_on_schedule_with_cron   "/usr/bin/supervisord"   4 hours ago         Up 4 hours                                                     emr_run_scripts_on_schedule_with_cron_1
+        7bddda1c5068        emr_run_scripts_continously             "/usr/bin/supervisord"   4 hours ago         Up 4 hours                                                     emr_run_scripts_continously_1
+        b73a7ce05fef        emr_run_scripts_on_events               "/usr/bin/supervisord"   4 hours ago         Up About an hour                                               emr_run_scripts_on_events_1
+        7bc92f4f56b8        emr_pdfletters                          "/usr/bin/supervisord"   4 hours ago         Up 4 hours                                                     emr_pdfletters_1
+        aa8a95cb54cc        emr_googlecalendar                      "/usr/bin/supervisord"   4 hours ago         Up 4 hours                                                     emr_googlecalendar_1
+        def76bfb3500        emr_gmailreader                         "/usr/bin/supervisord"   4 hours ago         Up 4 hours                                                     emr_gmailreader_1
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/chat
+
+    Steps to run chat_mongo_1, chat_server_1, chat_hubot_adapter_rocketchat_1, chat_hubot_adapter_socketio_1 ->
+        step 1: docker-compose up -d mongo
+        step 2: docker-compose up -d server
+        step 3: docker-compose up -d hubot_adapter_rocketchat
+        step 4: docker-compose up -d hubot_adapter_socketio
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        534f29e9b3d1        mongo                                   "/entrypoint.sh mongo"   3 hours ago         Up 3 hours          27017/tcp                                  chat_mongo_1
+        a90f2690a90c        chat_server                             "/usr/bin/supervisord"   3 hours ago         Up About an hour    0.0.0.0:3000->3000/tcp                     chat_server_1
+        d93152e2542c        chat_hubot_adapter_rocketchat           "/bin/sh -c 'node -e "   3 hours ago         Up 21 minutes       0.0.0.0:3001->8080/tcp                     chat_hubot_adapter_rocketchat_1
+        5c51a8fff594        chat_hubot_adapter_socketio             "/usr/bin/supervisord"   2 hours ago         Up 2 hours          82/tcp                                     chat_hubot_adapter_socketio_1
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/oauth
+
+    Steps to run oauth_serverside_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        3a6505377f3f        oauth_serverside                        "/usr/bin/supervisord"   46 minutes ago      Up 46 minutes       85/tcp                                     oauth_serverside_1
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/jira
+
+    Steps to run jira_from_sc_nginx_1 ->
+        step 1: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        4425fb0aac5c        jira_from_sc_nginx                      "/usr/bin/supervisord"   3 hours ago         Up 3 hours          8080/tcp, 8443/tcp                         jira_from_sc_nginx_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/runenv/basesrv/zfs-snapshot
+
+    Steps to run zfssnapshot_zfs_snapshot_base_1 ->
+        step 1: docker-compose -p emr up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        92e8bde756d1        zfssnapshot_zfs_snapshot_base           "/usr/bin/supervisord"   About an hour ago   Up About an hour                                               zfssnapshot_zfs_snapshot_base_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/monitoring/munin-server
+
+    Steps to run muninserver_from_sc_nginx_1 ->
+        step 1: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        504ad2ad3234        muninserver_from_sc_nginx               "/usr/bin/supervisord"   3 hours ago         Up 3 hours          80/tcp                                     muninserver_from_sc_nginx_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/runenv/basesrv/munin-monitor
+
+    Steps to run muninmonitor_for_baseos_1 ->
+        step 1: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        2b3c0b2e732e        muninmonitor_for_baseos                 "/usr/bin/supervisord"   About a minute ago   Up About a minute   0.0.0.0:4949->4949/tcp                     muninmonitor_for_baseos_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/runenv/basesrv/zpool-scrub
+
+    Steps to run muninmonitor_for_baseos_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        8e2c7adcf1c0        zpoolscrub_baseos                       "/usr/bin/supervisord"   6 seconds ago       Up 5 seconds                                                   zpoolscrub_baseos_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/gulp
+
+    Steps to run gulp_taskrunner_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        91aae1457739        gulp_taskrunner                         "/usr/bin/supervisord"   22 hours ago        Up 22 hours                                                    gulp_taskrunner_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/scbrain
+
+    Steps to run scbrain_api_intermediary_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        4ed9d0394d91        scbrain_api_intermediary                "/usr/bin/supervisord"   3 hours ago         Up 3 hours          86/tcp                                     scbrain_api_intermediary_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/chat/adapters/hangouts
+
+    Steps to run hangouts_hubot_adapter_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        625c39c605ab        hangouts_hubot_adapter                  "/usr/bin/supervisord"   2 hours ago         Up 2 hours                                                     hangouts_hubot_adapter_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/chat/adapters/skype
+
+    Steps to run skype_skype_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        ea50e2a5df01        skype_skype                             "/usr/bin/supervisord"   2 hours ago         Up 2 hours                                                     skype_skype_1
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/chat/coach
+
+    Steps to run coach_bot_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        c8fe7a08c487        coach_bot                               "/usr/bin/supervisord"   6 hours ago         Up 6 hours          0.0.0.0:3978->3978/tcp                     coach_bot_1
+
+
+
+PATH TO RUN DOCKER THE BELOW DOCKER -> /gt/savantcare.com/code/runenv-config/daemon-call-plivo-api
+
+    Steps to run daemoncallplivoapi_for_voice_call_1 ->
+        step 1: docker-compose build
+        step 2: docker-compose up -d
+
+    After Docker ps command Docker will looks like below:
+        CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+        c9ff08046d42        daemoncallplivoapi_for_voice_call       "/usr/bin/supervisord"   45 seconds ago      Up 44 seconds                                                                  daemoncallplivoapi_for_voice_call_1
+
+
+
+
+
+
+
+
+
+
+

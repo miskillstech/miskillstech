@@ -1,0 +1,9 @@
+REMOTE_DRIVER=github
+REMOTE_CONFIG=https://github.com?client_id=8a05602d46101dc56cd7&client_secret=06e0e2dcf76f072e13d71b57585d8217e1dca353
+# since gulp does minification we want the number of drone nodes to be 1 to limit it to 1 worker.
+# since if there are 2 drone workers the 2nd drone worker when it does git pull it will over write the gulp output
+# ref: https://github.com/drone/drone/issues/162
+# https://github.com/drone/drone/blob/v0.4.0/docs/cli/machines.md
+# https://github.com/drone/drone/issues/162
+# Form the GUI when I make the number of docker host as 1 then only build happens at a time
+DOCKER_HOST="unix:///var/run/docker.sock"
