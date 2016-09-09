@@ -24,7 +24,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 	
 # Most users will enter www.savantcare.com in their browser so we need to respod to port 80. Once we respond to port 80 we will redirect to port 85.
-EXPOSE 85
+EXPOSE 80
 
 # remove the default nginx config file otherwise it will display welcome to nginx meesage when someone goes to www.savantcare.com
 RUN rm -rf /etc/nginx/sites-available/default  
