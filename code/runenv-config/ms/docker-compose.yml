@@ -9,5 +9,5 @@ services:
        #- /ms/miskillstech.com/code/runenv-config/ms/core/nginx/nginx.conf:/etc/nginx/nginx.conf
        - /var/run/docker.sock:/var/run/docker.sock:ro        # needed for docker events
     ports:
-       - "80:80"
+       - "85:85"
        - "443:443"
