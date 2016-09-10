@@ -32,9 +32,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-zip # this is required
 RUN phpenmod mcrypt
 
 # add config files
-COPY /ms/miskillstech.com/code/runenv-config/ms/core/nginx/etc-nginx-conf.d/etc-php-7.0-fpm-pool.d-www.conf /etc/php/7.0/fpm/pool.d/www.conf
-COPY /ms/miskillstech.com/code/runenv-config/ms/core/nginx/override.php.ini /etc/php/7.0/fpm/conf.d/
-COPY /ms/miskillstech.com/code/runenv-config/ms/core/nginx/etc-nginx-conf.d/etc-supervisor-conf.d-services.conf /etc/supervisor/conf.d/services.conf
+COPY code/runenv-config/ms/core/nginx/etc-nginx-conf.d/etc-php-7.0-fpm-pool.d-www.conf /etc/php/7.0/fpm/pool.d/www.conf
+COPY code/runenv-config/ms/core/override.php.ini /etc/php/7.0/fpm/conf.d/
+COPY code/runenv-config/ms/core/nginx/etc-supervisor-conf.d-services.conf /etc/supervisor/conf.d/services.conf
 
 # Without next command i get the error message nable to create the PID file (/run/php/php7.0-fpm.pid).: No such file or directory
 RUN mkdir /run/php
