@@ -19,14 +19,8 @@ ENV TERM screen
 ##### Section 2: Container specific packages #####
 RUN apt-get install -y nginx
 
-# What does expose do?
-# The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. EXPOSE does not make the ports of the container accessible to the host.
-# To do that, you must use either the -p flag to publish a range of ports or the -P flag to publish all of the exposed ports.
-# Expose port 443 for https
-Expose 443
-
 # Most users will enter www.savantcare.com in their browser so we need to respod to port 80. Once we respond to port 80 we will redirect to port 443.
-Expose 85
+Expose 86
 
 # install the monitoring client
 RUN apt-get -y install munin-node

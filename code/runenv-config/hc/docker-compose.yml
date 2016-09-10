@@ -9,5 +9,4 @@ services:
        #- /hc/miskillstech.com/code/runenv-config/hc/core/nginx/nginx.conf:/etc/nginx/nginx.conf
        - /var/run/docker.sock:/var/run/docker.sock:ro        # needed for docker events
     ports:
-       - "85:85"
-       - "443:443"
+       - "86:86"
