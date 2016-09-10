@@ -6,7 +6,7 @@ services:
        - /ms/miskillstech.com:/ms/miskillstech.com
        - /ms/miskillstech.com/code/runenv-config/ms/core/nginx/etc-supervisor-conf.d:/etc/supervisor/conf.d
        - /ms/miskillstech.com/code/runenv-config/ms/core/nginx/etc-nginx-conf.d:/etc/nginx/conf.d
-       - /ms/miskillstech.com/code/runenv-config/ms/core/nginx/nginx.conf:/etc/nginx/nginx.conf
+       #- /ms/miskillstech.com/code/runenv-config/ms/core/nginx/nginx.conf:/etc/nginx/nginx.conf
        - /var/run/docker.sock:/var/run/docker.sock:ro        # needed for docker events
     ports:
        - "80:80"
