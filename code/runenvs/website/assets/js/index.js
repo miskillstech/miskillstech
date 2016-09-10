@@ -5,29 +5,35 @@
 
 angular.module('website', [
   'ngRoute',
-  '720kb.fx',
-  'ui.router'
+  '720kb.fx'
 ])
-.controller('Ctrl', ['$scope', '$location', '$window', '$state',
-  function Ctrl($scope, $location, $window, $state) {
-	
-	var hash;
-	$state.go('home');
-	$scope.appsSliderType = 'music';
+.config(['$locationProvider', function ($locationProvider) {
 
-	if ($location.$$hash) {
+  $locationProvider.html5Mode({
+    'enabled': true,
+    'requireBase': false
+  }).hashPrefix('#');
+}])
+.controller('Ctrl', ['$scope', '$location', '$window',
+  function Ctrl($scope, $location, $window) {
 
-		$scope.activeLink = $location.$$hash;
-	} else {
+  var hash;
 
-		$scope.activeLink = 'hello';
-	}
+  $scope.appsSliderType = 'music';
 
-	$scope.setActiveLink = function setActiveLink(link) {
-		$scope.activeLink = link;
-	};
-	$scope.setAppsSliderType = function setAppsSliderType(type) {
-		$scope.appsSliderType = type;
-	};
+  if ($location.$$hash) {
+
+    $scope.activeLink = $location.$$hash;
+  } else {
+
+    $scope.activeLink = 'hello';
+  }
+
+  $scope.setActiveLink = function setActiveLink(link) {
+    $scope.activeLink = link;
+  };
+  $scope.setAppsSliderType = function setAppsSliderType(type) {
+    $scope.appsSliderType = type;
+  };
 }]);
 }(angular));
