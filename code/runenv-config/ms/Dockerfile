@@ -5,26 +5,19 @@
 #
 
 # Pull base image.
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
-# Install Nginx.
-RUN \
-  add-apt-repository -y ppa:nginx/stable && \
-  apt-get update && \
-  apt-get install -y nginx && \
-  rm -rf /var/lib/apt/lists/* && \
-  echo "\ndaemon off;" >> /etc/nginx/nginx.conf && \
-  chown -R www-data:www-data /var/lib/nginx
+MAINTAINER Agnikim Pro <agnikim88@gmail.com>
 
-# Define mountable directories.
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/ms/miskillstech.com/code/runenvs/website"]
+RUN apt-get update && \
+    apt-get install -y nginx && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Define working directory.
-WORKDIR /etc/nginx
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+ADD sites-enabled/ /etc/nginx/sites-enabled/
+ADD app/ /app/
 
-# Define default command.
-CMD ["nginx"]
-
-# Expose ports.
 EXPOSE 80
-EXPOSE 443
+
+CMD ["/usr/sbin/nginx"]
