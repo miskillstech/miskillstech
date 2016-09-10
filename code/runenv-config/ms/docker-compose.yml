@@ -4,7 +4,9 @@ services:
     build: ./
     volumes:
        - /ms/miskillstech.com:/ms/miskillstech.com
-       - /ms/miskillstech.com/code/runenv-config/ms/sites-enabled/default:/etc/nginx/sites-enabled/default
-       #- /var/run/docker.sock:/var/run/docker.sock:ro        # needed for docker events
+       - /ms/miskillstech.com/code/runenv-config/ms/etc-supervisor-conf.d:/etc/supervisor/conf.d
+       - /ms/miskillstech.com/code/runenv-config/ms/sites-enabled/default.conf:/etc/nginx/nginx.conf
+       - /var/run/docker.sock:/var/run/docker.sock:ro        # needed for docker events
     ports:
        - "80:80"
+       - "443:443"
