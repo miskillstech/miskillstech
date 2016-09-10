@@ -32,7 +32,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y php-zip # this is required
 RUN phpenmod mcrypt
 
 # add config files
-RUN mkdir /etc/php/7.0/fpm/pool.d/www.conf
 COPY etc-php-7.0-fpm-pool.d-www.conf /etc/php/7.0/fpm/pool.d/www.conf
 COPY override.php.ini /etc/php/7.0/fpm/conf.d/
 COPY etc-supervisor-conf.d-services.conf /etc/supervisor/conf.d/services.conf
