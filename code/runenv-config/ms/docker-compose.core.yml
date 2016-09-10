@@ -1,8 +1,0 @@
-version: '2'
-services:
-  nginxdocker:
-    build: core/nginx
-    volumes:
-       - /ms/miskillstech.com:/ms/miskillstech.com
-       - /ms/miskillstech.com/code/runenv-config/ms/core/nginx/etc-nginx-conf.d:/etc/nginx/conf.d
-       #- /var/run/docker.sock:/var/run/docker.sock:ro        # needed for docker events
