@@ -27,7 +27,6 @@ Expose 443
 
 # Most users will enter www.savantcare.com in their browser so we need to respod to port 80. Once we respond to port 80 we will redirect to port 443.
 Expose 80
-Expose 85
 
 # install the monitoring client
 RUN apt-get -y install munin-node
