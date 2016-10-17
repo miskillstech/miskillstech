@@ -12,3 +12,10 @@ services:
     ports:
        - "80:80"
        - "443:443"
+   networks:
+       - ms
+
+networks:
+   ms:
+    external:
+      name: ms_default

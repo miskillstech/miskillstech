@@ -1,0 +1,16 @@
+version: '2'
+services:
+  php:
+    build: server
+    volumes:
+       - /ms/miskillstech.com/code/runenv-config/hc-api:/ms/miskillstech.com/code/runenv-config/hc-api
+       - /ms/miskillstech.com/code/runenv-config/hc-api/server/etc-supervisor-conf.d-php.conf:/etc/supervisor/conf.d/php.conf
+       - /ms/miskillstech.com/code/runenv-config/hc-api/server/www.conf:/etc/php/7.0/fpm/pool.d/www.conf
+       - /ms/miskillstech.com/code/runenv-config/hc-api/server/var-www-html:/var/www/html
+    networks:
+       - ms
+
+networks:
+   ms:
+    external:
+      name: ms_default
