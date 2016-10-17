@@ -9,10 +9,10 @@ services:
        - /ms/miskillstech.com/code/runenv-config/ms/nginxproxy/etc-nginx-snippets-fastcgi-php.conf:/etc/nginx/snippets/fastcgi-php.conf
 
     networks:
-        - emr
+        - ms
     restart: unless-stopped
 
 networks:
-  emr:
+  ms:
     external:
-      name: emr_default
+      name: ms_default
