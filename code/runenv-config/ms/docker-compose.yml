@@ -18,7 +18,7 @@ services:
   mysqldocker:
     build: core/mysql
     volumes:
-       - /ms/miskillstech.com/data/mysql/live:/gt/savantcare.com/data/mysql/live
+       - /ms/miskillstech.com/data/mysql/live:/ms/miskillstech.com/data/mysql/live
     ports:
        - "10.53.35.12:3306:3306"
     networks:
