@@ -1,0 +1,6 @@
+[submodule "code/runenv-config/ms/docker"]
+	path = code/runenv-config/ms/docker
+	url = https://github.com/phpmyadmin/docker.git
+[submodule "code/runenv-config/ms/phpmyadmin"]
+	path = code/runenv-config/ms/phpmyadmin
+	url = https://github.com/phpmyadmin/docker.git
