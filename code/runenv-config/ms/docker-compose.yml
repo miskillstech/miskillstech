@@ -20,7 +20,7 @@ services:
     volumes:
        - /ms/miskillstech.com/data/mysql/live:/ms/miskillstech.com/data/mysql/live
     ports:
-       - "10.53.35.12:3306:3306"
+       - "3306:3306"
     networks:
        - ms
        
@@ -29,7 +29,7 @@ services:
     ports:
        - 83:80
     environment:
-       - PMA_HOST=emr_mysqldocker_1
+       - PMA_HOST=ms_mysqldocker_1
        - PMA_ARBITRARY=1
        - PHP_UPLOAD_MAX_FILESIZE=100000000
     networks:
