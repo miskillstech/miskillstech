@@ -1,8 +1,0 @@
-db:
-  image: tutum/mysql:5.5
-  volumes:
-       - /ms/miskillstech.com/data/mysql/live:/ms/miskillstech.com/data/mysql/live
-  ports:
-       - "3306:3306"
-  networks:
-       - ms
