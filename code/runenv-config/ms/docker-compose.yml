@@ -38,6 +38,12 @@ services:
     networks:
        - ms       
        
+  php7docker:
+    build: core/php7
+    volumes:
+       - /ms/miskillstech.com:/ms/miskillstech.com 
+       - /ms/miskillstech.com/code/runenv-config/ms/core/php7/php.ini:/etc/php/7.0/fpm/php.ini
+       
 networks:
    ms:
     external:
