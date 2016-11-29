@@ -13,4 +13,4 @@ use Illuminate\Http\Request;
 Route::get('testApi', function () {
     echo 'Laravel is working';
 });
-Route::get('testApi', 'Login@fnCabLogin');
+Route::get('cabLogin', 'Login@fnCabLogin');
