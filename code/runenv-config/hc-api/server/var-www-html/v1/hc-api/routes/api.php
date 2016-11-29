@@ -14,4 +14,4 @@ Route::get('testApi', function () {
     echo 'Laravel is working';
 });
 Route::get('cabLogin', 'Login@fnCabLogin');
-Route::get('cabRegistration', 'Registration@fnCabRegistration');
+Route::put('cabRegistration', 'Registration@fnCabRegistration');
