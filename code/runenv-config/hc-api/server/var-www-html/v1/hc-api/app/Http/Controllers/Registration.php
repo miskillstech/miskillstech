@@ -63,6 +63,7 @@ class Registration extends Controller
 		$requestData = Request::all();
 		$uid = $requestData['uid'];
 		$otp = $requestData['otp'];
+		
 		$arPhoneData = DB::table('users_phone_verification_detail')
 				->select(
 					'users_phone_verification_detail.id'
