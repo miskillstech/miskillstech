@@ -28,7 +28,18 @@ class Login extends Controller
             ->where('users.password', $password)
             ->first();
 			if(!empty($arUserData)) {
-				return array('status' => 'success', 'data' => $arUserData);
+				$phoneVerified = 'no';
+				$arPhoneData = DB::table('users_phone_verification_detail')
+				->select(
+					'users_phone_verification_detail.id'
+				)
+				->where('users_phone_verification_detail.uid', $arUserData->uid)
+				->where('users_phone_verification_detail.isVerified', 'yes')
+				->first();
+				if(!empty($arPhoneData)){
+					$phoneVerified = 'yes';
+				}
+				return array('status' => 'success', 'data' => $arUserData, 'phoneVerified' => $phoneVerified);
 			} else {
 				return array('status' => 'fail', 'message' => 'Incorrect password.');
 			}
@@ -56,7 +67,18 @@ class Login extends Controller
 				->where('users.password', $password)
 				->first();
 				if(!empty($arUserData)) {
-					return array('status' => 'success', 'data' => $arUserData);
+					$phoneVerified = 'no';
+					$arPhoneData = DB::table('users_phone_verification_detail')
+					->select(
+						'users_phone_verification_detail.id'
+					)
+					->where('users_phone_verification_detail.uid', $arUserData->uid)
+					->where('users_phone_verification_detail.isVerified', 'yes')
+					->first();
+					if(!empty($arPhoneData)){
+						$phoneVerified = 'yes';
+					}
+					return array('status' => 'success', 'data' => $arUserData, 'phoneVerified' => $phoneVerified);
 				} else {
 					return array('status' => 'fail', 'message' => 'Incorrect password.');
 				}

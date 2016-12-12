@@ -15,3 +15,5 @@ Route::get('testApi', function () {
 });
 Route::get('cabLogin', 'Login@fnCabLogin');
 Route::put('cabRegistration', 'Registration@fnCabRegistration');
+Route::get('getOTPForPhoneVerification/{id}', 'Registration@fnGetOTPForPhoneVerification');
+Route::put('verifyOTPForPhone', 'Registration@fnVerifyOTPForPhone');
